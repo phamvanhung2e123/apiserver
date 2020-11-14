@@ -1,6 +1,5 @@
 module Api
   class ApplicationController < ActionController::API
-    before_action :authenticate_request
     attr_reader :current_api_user
 
     private
