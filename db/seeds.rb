@@ -13,3 +13,4 @@ trip_names.each do |trip_name|
   Event.create(name: trip_name, location: "tokyo", start_time: Time.now - 30.day, end_time: Time.now + 30.day)
 end
 User.create(email: 'john.doe@example.com', password: 'test123')
+

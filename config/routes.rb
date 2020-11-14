@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     namespace :v1 do
       post 'authenticate', to: 'authentication#authenticate'
       resources :events, only: [:index]
+      resources :events do
+        resources :participants
+      end
     end
   end
 end
