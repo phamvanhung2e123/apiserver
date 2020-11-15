@@ -17,7 +17,13 @@ class Api::V1::ParticipantsController < Api::ApplicationController
       render json: { results: [] }.to_json, status: :bad_request
       return
     end
+    exist = Participant.find_by(user: @current_api_user, event: event)
+    if exist != nil
+      render json: { results: [] }.to_json, status: :bad_request
+      return
+    end
     participant = Participant.create(user: @current_api_user, event: event)
+    UserMailer.with(user: @current_api_user).welcome_email.deliver_now
     render json: {results: participant}.to_json, status: :created
   end
 
