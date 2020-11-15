@@ -1,5 +1,4 @@
 class Api::V1::EventsController < Api::ApplicationController
-  before_action :authenticate_request, only: [:index]
 
   def index
     events = Event.all

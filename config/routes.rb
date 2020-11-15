@@ -4,10 +4,9 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       post 'authenticate', to: 'authentication#authenticate'
-      resources :events, only: [:index]
-      resources :events do
-        resources :participants
-      end
+      get 'events', to:  'events#index'
+      get 'events/:event_id/participants', to:  'participants#index'
+      post 'events/:event_id/participants', to:  'participants#create'
     end
   end
 end
