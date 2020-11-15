@@ -20,4 +20,15 @@ class Api::V1::ParticipantsController < Api::ApplicationController
     participant = Participant.create(user: @current_api_user, event: event)
     render json: {results: participant}.to_json, status: :created
   end
+
+  def destroy
+    event = Event.find_by(id: params[:event_id])
+    participant = Participant.find_by(id: params[:id])
+    if event == nil || participant == nil
+      render json: { results: [] }.to_json, status: :bad_request
+      return
+    end
+    participant.destroy
+    head :no_content
+  end
 end
