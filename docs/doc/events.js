@@ -1,5 +1,5 @@
 /**
- * @api {get} /api/v1/events Request for list of events
+ * @api {get} /api/v1/events Get list of events
  * @apiName GetEvents
  * @apiGroup Event
  *

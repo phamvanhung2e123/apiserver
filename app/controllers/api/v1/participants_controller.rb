@@ -17,12 +17,12 @@ class Api::V1::ParticipantsController < Api::ApplicationController
       render json: { results: [] }.to_json, status: :bad_request
       return
     end
-    exist = Participant.find_by(user: @current_api_user, event: event)
+    exist = Participant.find_by(user_id: @current_api_user.id, event_id: event.id)
     if exist != nil
       render json: { results: [] }.to_json, status: :bad_request
       return
     end
-    participant = Participant.create(user: @current_api_user, event: event)
+    participant = Participant.create(user_id: @current_api_user.id, event_id: event.id)
     UserMailer.with(user: @current_api_user).welcome_email.deliver_now
     render json: {results: participant}.to_json, status: :created
   end
@@ -35,6 +35,6 @@ class Api::V1::ParticipantsController < Api::ApplicationController
       return
     end
     participant.destroy
-    head :no_content
+    render json: {results: "ok"}.to_json, status: :ok
   end
 end

@@ -2,7 +2,7 @@ define({ "api": [
   {
     "type": "get",
     "url": "/api/v1/events",
-    "title": "Request for list of events",
+    "title": "Get list of events",
     "name": "GetEvents",
     "group": "Event",
     "success": {
@@ -79,9 +79,66 @@ define({ "api": [
     "groupTitle": "Event"
   },
   {
+    "type": "DELETE",
+    "url": "/api/v1/events/:event_id/participants/:participants",
+    "title": "Delete an event",
+    "name": "DELETE",
+    "group": "Participants",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>The token can be generated from authenticate api</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example",
+          "content": "\"Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHBpcnkiOjE2MDU1MjI2NTF9.fJMBMER8Sl99GBhqAUiTZn15m_OFeFlUbcVGMxDKgoY\"",
+          "type": "Header"
+        }
+      ]
+    },
+    "examples": [
+      {
+        "title": "Curl example",
+        "content": "curl -X DELETE http://localhost:3000/api/v1/events/1/participants -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHBpcnkiOjE2MDU1MjI2NTF9.fJMBMER8Sl99GBhqAUiTZn15m_OFeFlUbcVGMxDKgoY'",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "result",
+            "description": "<p><code>ok</code> if everything went fine.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"result\": \"ok\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "doc/participants.js",
+    "groupTitle": "Participants"
+  },
+  {
     "type": "get",
     "url": "/api/v1/events/:event_id/participants",
-    "title": "Request for list of participants of an event",
+    "title": "Get list of participants",
     "name": "Get",
     "group": "Participants",
     "header": {
@@ -125,9 +182,55 @@ define({ "api": [
     "groupTitle": "Participants"
   },
   {
+    "type": "POST",
+    "url": "/api/v1/events/:event_id/participants",
+    "title": "Join an event",
+    "name": "POST",
+    "group": "Participants",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>The token can be generated from authenticate api</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example",
+          "content": "\"Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHBpcnkiOjE2MDU1MjI2NTF9.fJMBMER8Sl99GBhqAUiTZn15m_OFeFlUbcVGMxDKgoY\"",
+          "type": "Header"
+        }
+      ]
+    },
+    "examples": [
+      {
+        "title": "Curl example",
+        "content": "curl -X POST http://localhost:3000/api/v1/events/1/participants -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHBpcnkiOjE2MDU1MjI2NTF9.fJMBMER8Sl99GBhqAUiTZn15m_OFeFlUbcVGMxDKgoY'",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": " HTTP/1.1 200 OK\n{\n  \"results\":{\n    \"id\":4,\n    \"user_id\":1,\n    \"event_id\":4,\n    \"created_at\":\"2020-11-16T22:28:55.652Z\",\n    \"updated_at\":\"2020-11-16T22:28:55.652Z\"\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "doc/participants.js",
+    "groupTitle": "Participants"
+  },
+  {
     "type": "get",
     "url": "/api/v1/authenticate",
-    "title": "Request auth_token",
+    "title": "Get auth_token",
     "name": "GetUser",
     "group": "User",
     "parameter": {

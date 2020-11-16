@@ -1,5 +1,5 @@
 /**
- * @api {get} /api/v1/authenticate Request auth_token
+ * @api {get} /api/v1/authenticate Get auth_token
  * @apiName GetUser
  * @apiGroup User
  *
