@@ -75,7 +75,7 @@
       }
     ],
     "version": "0.0.0",
-    "filename": "doc/apidoc.js",
+    "filename": "doc/events.js",
     "groupTitle": "Event"
   },
   {
@@ -132,7 +132,7 @@
       }
     ],
     "version": "0.0.0",
-    "filename": "doc/apidoc.js",
+    "filename": "doc/authenticate.js",
     "groupTitle": "User"
   }
 ]
