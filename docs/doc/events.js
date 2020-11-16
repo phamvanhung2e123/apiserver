@@ -16,15 +16,15 @@
  * @apiSuccessExample Success-Response:
  *     HTTP/1.1 200 OK
  *     {
- *      results: [
+ *    "results":[
  *        {
- *        id: 1,
- *        name: "Romantic Spots for Honeymoons",
- *        location: "tokyo",
- *        start_time: "2020-10-16T12:56:35.161Z",
- *        end_time: "2020-12-15T12:56:35.161Z",
- *        created_at: "2020-11-15T12:56:35.171Z",
- *        updated_at: "2020-11-15T12:56:35.171Z"
+ *          "id":1,
+ *          "name":"Romantic Spots for Honeymoons",
+ *          "location":"tokyo",
+ *          "start_time":"2020-10-16T12:56:35.161Z",
+ *          "end_time":"2020-12-15T12:56:35.161Z",
+ *          "created_at":"2020-11-15T12:56:35.171Z",
+ *          "updated_at":"2020-11-15T12:56:35.171Z"
  *        }
  *      ]
  *     }
