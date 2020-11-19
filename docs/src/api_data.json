@@ -99,7 +99,7 @@
       "examples": [
         {
           "title": "Header-Example",
-          "content": "\"Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHBpcnkiOjE2MDU1MjI2NTF9.fJMBMER8Sl99GBhqAUiTZn15m_OFeFlUbcVGMxDKgoY\"",
+          "content": "\"Authorization: Bearer TOKEN\"",
           "type": "Header"
         }
       ]
@@ -107,7 +107,7 @@
     "examples": [
       {
         "title": "Curl example",
-        "content": "curl -X DELETE http://localhost:3000/api/v1/events/1/participants -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHBpcnkiOjE2MDU1MjI2NTF9.fJMBMER8Sl99GBhqAUiTZn15m_OFeFlUbcVGMxDKgoY'",
+        "content": "curl -X DELETE http://localhost:3000/api/v1/events/1/participants -H 'Authorization: Bearer TOKEN'",
         "type": "bash"
       }
     ],
@@ -156,7 +156,7 @@
       "examples": [
         {
           "title": "Header-Example",
-          "content": "\"Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHBpcnkiOjE2MDU1MjI2NTF9.fJMBMER8Sl99GBhqAUiTZn15m_OFeFlUbcVGMxDKgoY\"",
+          "content": "\"Authorization: Bearer TOKEN\"",
           "type": "Header"
         }
       ]
@@ -164,7 +164,7 @@
     "examples": [
       {
         "title": "Curl example",
-        "content": "curl -X GET http://localhost:3000/api/v1/participants -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHBpcnkiOjE2MDU1MjI2NTF9.fJMBMER8Sl99GBhqAUiTZn15m_OFeFlUbcVGMxDKgoY'",
+        "content": "curl -X GET http://localhost:3000/api/v1/participants -H 'Authorization: Bearer TOKEN'",
         "type": "bash"
       }
     ],
@@ -202,7 +202,7 @@
       "examples": [
         {
           "title": "Header-Example",
-          "content": "\"Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHBpcnkiOjE2MDU1MjI2NTF9.fJMBMER8Sl99GBhqAUiTZn15m_OFeFlUbcVGMxDKgoY\"",
+          "content": "\"Authorization: Bearer TOKEN\"",
           "type": "Header"
         }
       ]
@@ -210,7 +210,7 @@
     "examples": [
       {
         "title": "Curl example",
-        "content": "curl -X GET http://localhost:3000/api/v1/events/1/participants -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHBpcnkiOjE2MDU1MjI2NTF9.fJMBMER8Sl99GBhqAUiTZn15m_OFeFlUbcVGMxDKgoY'",
+        "content": "curl -X GET http://localhost:3000/api/v1/events/1/participants -H 'Authorization: Bearer TOKEN'",
         "type": "bash"
       }
     ],
@@ -248,7 +248,7 @@
       "examples": [
         {
           "title": "Header-Example",
-          "content": "\"Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHBpcnkiOjE2MDU1MjI2NTF9.fJMBMER8Sl99GBhqAUiTZn15m_OFeFlUbcVGMxDKgoY\"",
+          "content": "\"Authorization: Bearer TOKEN\"",
           "type": "Header"
         }
       ]
@@ -256,7 +256,7 @@
     "examples": [
       {
         "title": "Curl example",
-        "content": "curl -X POST http://localhost:3000/api/v1/events/1/participants -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHBpcnkiOjE2MDU1MjI2NTF9.fJMBMER8Sl99GBhqAUiTZn15m_OFeFlUbcVGMxDKgoY'",
+        "content": "curl -X POST http://localhost:3000/api/v1/events/1/participants -H 'Authorization: Bearer TOKEN'",
         "type": "bash"
       }
     ],
@@ -264,7 +264,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": " HTTP/1.1 200 OK\n{\n  \"results\":{\n    \"id\":4,\n    \"user_id\":1,\n    \"event_id\":4,\n    \"created_at\":\"2020-11-16T22:28:55.652Z\",\n    \"updated_at\":\"2020-11-16T22:28:55.652Z\"\n  }\n}",
+          "content": " HTTP/1.1 201 Created\n{\n  \"results\":{\n    \"id\":4,\n    \"user_id\":1,\n    \"event_id\":4,\n    \"created_at\":\"2020-11-16T22:28:55.652Z\",\n    \"updated_at\":\"2020-11-16T22:28:55.652Z\"\n  }\n}",
           "type": "json"
         }
       ]
@@ -320,10 +320,30 @@
         }
       ]
     },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>The token can be generated from authenticate api</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example",
+          "content": "\"Authorization: Bearer TOKEN\"",
+          "type": "Header"
+        }
+      ]
+    },
     "examples": [
       {
         "title": "Curl example",
-        "content": "curl http://localhost:3000/api/v1/users",
+        "content": "curl http://localhost:3000/api/v1/users -H 'Authorization: Bearer TOKEN'",
         "type": "bash"
       }
     ],
