@@ -13,6 +13,12 @@ ruby -v
 # If not, install bundler by referring https://bundler.io/
 bundler -v
 
+# Make sure sqlite3 is installed https://www.sqlite.org/index.html
+sqlite3 --version
+
+# Make sure rails is installed https://rubyonrails.org/
+rails --version
+
 # Initial setup
 bundle install
 
@@ -31,7 +37,7 @@ curl -X POST http://localhost:3000/api/v1/authenticate \
 ```
 
 #### Version
-- ruby 2.7.2
+- Ruby 2.7.2
 - Rails 6.0.3.4
 - Sqlite3
 
@@ -47,6 +53,11 @@ open docs/src/index.html
 
 # Client
 #### How to start
+- Go to client app
+```
+cd event-app
+```
+- Init and start
 ```
 # Make sure Node.js is installed.
 # If not, install Node.js by referring https://nodejs.org/en/download/
@@ -59,17 +70,22 @@ npm -v
 yarn -v
 
 # Initial setup
-npm ci
+yarn
 
 # Run app
-npm start
+yarn start
 
 # Open app
 open http://localhost:3006
 ```
 ![alt text](screenshot.png "Image")
 
-#### How to add new user
+#### Version
+- npm 6.14.8
+- node v14.15.0
+- yarn 1.22.10
+
+# How to add new user
 - Add user
 ```
 rails c
@@ -82,9 +98,3 @@ irb(main):001:0> User.create(email: 'vanhung.pham@example.com', password: 'test1
 # File event-app/src/index.js
 const token = "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHBpcnkiOjE2MDU4NTMyMzF9.w7iaWGU66W_0In_cE2O8wtr1szKwVfbuFg7Zwb7LkYA"
 ```
-
-#### Version
-- npm 6.14.8
-- node v14.15.0
-- yarn 1.22.10
-
