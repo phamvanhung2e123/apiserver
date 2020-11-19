@@ -108,6 +108,12 @@ irb(main):001:0> User.create(email: 'vanhung.pham@example.com', password: 'test1
 ```
 - Update this token for client
 ```
-# File event-app/src/index.js
-const token = "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHBpcnkiOjE2MDU4NTMyMzF9.w7iaWGU66W_0In_cE2O8wtr1szKwVfbuFg7Zwb7LkYA"
+curl -X POST http://localhost:3000/api/v1/authenticate \
+-H 'content-type: multipart/form-data' \
+-F 'email=vanhung.pham@example.com' -F 'password=test123'
+
+{"auth_token":"eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHBpcnkiOjE2MDU4NTcwMzh9.cZs8D5n9ZlPYBUcNrCn5qyzVgOgVToYLKR-2nwWiJ4o"}%
+
+# Set Token in file event-app/src/index.js
+const token = "token"
 ```
