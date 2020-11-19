@@ -49,17 +49,17 @@ RSpec.describe 'Participants API', type: :request do
     end
   end
 
-  describe 'POST /api/v1/events/:event_id/participants/:participant_id' do
+  describe 'DELETE /api/v1/events/:event_id/participants' do
     it 'returns status code unauthorized' do
-      delete '/api/v1/events/'+event_id.to_s+'/participants/1'
+      delete '/api/v1/events/'+event_id.to_s+'/participants'
       expect(response).to have_http_status(:unauthorized)
     end
     it 'returns status code destroy' do
       jwt = JsonWebToken.encode(user_id: user.id)
       participant = Participant.create(user_id: user.id, event_id: event_id)
       expect(Participant.where(user_id: user.id).to_a.size).to eq 1
-      delete '/api/v1/events/'+event_id.to_s+'/participants/'+participant.id.to_s, headers: { "Authorization" => "Bearer #{jwt}" }
-      expect(response).to have_http_status(:no_content)
+      delete '/api/v1/events/'+event_id.to_s+'/participants/', headers: { "Authorization" => "Bearer #{jwt}" }
+      expect(response).to have_http_status(:ok)
       expect(Participant.where(user_id: user.id).to_a.size).to eq 0
     end
   end

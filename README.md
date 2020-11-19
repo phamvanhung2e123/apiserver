@@ -1,24 +1,23 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Server
+#### Ruby version
+- ruby 2.7.2
 
-Things you may want to cover:
+#### System dependencies
+- Rails 6.0.3.4
+- Sqlite3
 
-* Ruby version
+#### Database creation
+```
 
-* System dependencies
+```
+#### Database initialization
+```
 
-* Configuration
-
-* Database creation
-
-* Database initialization
+```
 
 * How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+bundle exec rspec
+```
