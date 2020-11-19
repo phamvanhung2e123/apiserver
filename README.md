@@ -72,12 +72,25 @@ yarn -v
 # Initial setup
 yarn
 
+# Set user tokn
+curl -X POST http://localhost:3000/api/v1/authenticate \
+-H 'content-type: multipart/form-data' \
+-F 'email=john.doe@example.com' -F 'password=test123'
+
+# Export token
+export TOKEN="xxx"
+( For example: export TOKEN="eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHBpcnkiOjE2MDU4NTUyMTV9.MyJWTMf_etId88AbDn6sQOR0_iNLW03oQAGCTVweJoI")
+
+# Set Token
+sed -i.bu "s/USER_FIXED_TOKEN/$TOKEN/g" src/index.js
+
 # Run app
 yarn start
 
 # Open app
 open http://localhost:3006
 ```
+
 ![alt text](screenshot.png "Image")
 
 #### Version
