@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       get 'events/:event_id/participants', to:  'participants#index'
       get 'participants', to:  'participants#list'
       post 'events/:event_id/participants', to:  'participants#create'
-      delete 'events/:event_id/participants/:id', to:  'participants#destroy'
+      delete 'events/:event_id/participants', to:  'participants#destroy'
     end
   end
 end

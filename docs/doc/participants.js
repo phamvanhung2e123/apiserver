@@ -70,7 +70,7 @@
  */
 
 /**
- * @api {DELETE} /api/v1/events/:event_id/participants/:participants Delete an event
+ * @api {DELETE} /api/v1/events/:event_id/participants Delete an event
  * @apiName DELETE
  * @apiGroup Participants
  * @apiHeader {String} Authorization The token can be generated from authenticate api

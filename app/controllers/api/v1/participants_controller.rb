@@ -34,8 +34,12 @@ class Api::V1::ParticipantsController < Api::ApplicationController
 
   def destroy
     event = Event.find_by(id: params[:event_id])
-    participant = Participant.find_by(id: params[:id])
-    if event == nil || participant == nil
+    if event == nil
+      render json: { results: [] }.to_json, status: :bad_request
+      return
+    end
+    participant = Participant.find_by(event_id: event.id, user_id: @current_api_user.id)
+    if participant == nil
       render json: { results: [] }.to_json, status: :bad_request
       return
     end

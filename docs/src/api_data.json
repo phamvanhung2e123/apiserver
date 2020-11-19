@@ -80,7 +80,7 @@
   },
   {
     "type": "DELETE",
-    "url": "/api/v1/events/:event_id/participants/:participants",
+    "url": "/api/v1/events/:event_id/participants",
     "title": "Delete an event",
     "name": "DELETE",
     "group": "Participants",
