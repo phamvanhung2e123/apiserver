@@ -11,6 +11,11 @@ class Api::V1::ParticipantsController < Api::ApplicationController
     render json: { results: participants }.to_json, status: :ok
   end
 
+  def list
+    participants = Participant.where(user_id: @current_api_user.id).to_a
+    render json: { results: participants }.to_json, status: :ok
+  end
+
   def create
     event = Event.find_by(id: params[:event_id])
     if event == nil

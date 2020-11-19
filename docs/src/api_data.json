@@ -136,9 +136,55 @@
     "groupTitle": "Participants"
   },
   {
+    "type": "GET",
+    "url": "/api/v1/participants",
+    "title": "Get participants by user",
+    "name": "GET",
+    "group": "Participants",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>The token can be generated from authenticate api</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example",
+          "content": "\"Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHBpcnkiOjE2MDU1MjI2NTF9.fJMBMER8Sl99GBhqAUiTZn15m_OFeFlUbcVGMxDKgoY\"",
+          "type": "Header"
+        }
+      ]
+    },
+    "examples": [
+      {
+        "title": "Curl example",
+        "content": "curl -X GET http://localhost:3000/api/v1/participants -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHBpcnkiOjE2MDU1MjI2NTF9.fJMBMER8Sl99GBhqAUiTZn15m_OFeFlUbcVGMxDKgoY'",
+        "type": "bash"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": " HTTP/1.1 200 OK\n{\n\"results\":[\n  {\n    \"id\":1,\n    \"user_id\":1,\n    \"event_id\":1,\n    \"created_at\":\"2020-11-15T12:57:02.630Z\",\n    \"updated_at\":\"2020-11-15T12:57:02.630Z\"\n  }\n]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "doc/participants.js",
+    "groupTitle": "Participants"
+  },
+  {
     "type": "get",
     "url": "/api/v1/events/:event_id/participants",
-    "title": "Get list of participants",
+    "title": "Get participants by event",
     "name": "Get",
     "group": "Participants",
     "header": {

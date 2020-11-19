@@ -15,6 +15,6 @@ services:
   smtp-server:
     image: 'rnwood/smtp4dev:v3'
     ports:
-      - 3001:8080
+      - 3001:80
       - 25:25
     restart: always
