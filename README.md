@@ -46,7 +46,7 @@ open docs/src/index.html
 ```
 
 # Client
-#### Version
+#### How to start
 ```
 # Make sure Node.js is installed.
 # If not, install Node.js by referring https://nodejs.org/en/download/
@@ -67,8 +67,21 @@ npm start
 # Open app
 open http://localhost:3006
 ```
-
 ![alt text](screenshot.png "Image")
+
+#### How to add new user
+- Add user
+```
+rails c
+Running via Spring preloader in process 43724
+Loading development environment (Rails 6.0.3.4)
+irb(main):001:0> User.create(email: 'vanhung.pham@example.com', password: 'test123')
+```
+- Update this token for client
+```
+# File event-app/src/index.js
+const token = "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHBpcnkiOjE2MDU4NTMyMzF9.w7iaWGU66W_0In_cE2O8wtr1szKwVfbuFg7Zwb7LkYA"
+```
 
 #### Version
 - npm 6.14.8
