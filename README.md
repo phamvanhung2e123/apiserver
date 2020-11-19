@@ -72,7 +72,7 @@ yarn -v
 # Initial setup
 yarn
 
-# Set user tokn
+# Set user token
 curl -X POST http://localhost:3000/api/v1/authenticate \
 -H 'content-type: multipart/form-data' \
 -F 'email=john.doe@example.com' -F 'password=test123'
